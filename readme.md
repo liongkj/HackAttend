@@ -1,6 +1,6 @@
 \# Unveiling Vulnerabilities of Self-Attention
 
-**---**
+---
 
 This is the official repo for the LREC-COLING 2024 paper [Unveiling Vulnerability of Self-Attention](https://arxiv.org/abs/2402.16470)
 
