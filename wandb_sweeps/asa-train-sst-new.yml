@@ -1,0 +1,37 @@
+metric:
+  goal: maximize
+  name: clean/eval_acc
+method: grid
+project: "asa_train_2_0"
+parameters:
+  mask_rate:
+    # values: [0.1,0.2,0.3]
+    values: [0.5,0.1,0.2]
+  warmup_proportion:
+    values: [0.06,0.1]
+  learning_rate:
+    values: [2e-5,3e-5,1e-5]
+  adv_split:
+    # values: ["test"]
+    values: ["test"]
+command:
+  - python
+  - "run_sattend.py"
+  - "--do_eval"
+  - "--do_train"
+  - "--best_epoch"
+  - "best"
+  # - "--learning_rate"
+  # - "2e-5"
+  - "--task_name"
+  - "sst-2"
+  - "--do_lower_case"
+  - "--num_train_epochs"
+  - "4"
+  - "--train_batch_size"
+  - "32"
+  # - "--warmup_proportion"
+  # - "0.06"
+  - "--fp16"
+  - "--adversarial"
+  - ${args}

@@ -1,0 +1,7 @@
+seaborn
+wandb
+transformers
+numpy
+torch
+scikit-learn
+tabulate

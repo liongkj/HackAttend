@@ -1,0 +1,37 @@
+metric:
+  goal: maximize
+  name: Attack Success rate (%)
+method: grid
+project: "final_result_asa_2_0"
+parameters:
+  # layer_mask_type:
+  #   values: ["111111111111","000000000001", "100000000000","000001000000"
+  #   # "000000000010","000000000100","000000001000","000000010000","000000100000","000001000000","000010000000","000100000000","001000000000","010000000000","100000000000",
+  #   ]
+  top_percentage_in_layer:
+    values: [0.01]
+  aadv:
+    values: [1]
+  # attn_head_mask:
+  #   values: ["111111111111"]
+  # attn_layer_mask:
+  #   values: ["111111111111"]
+  task_name:
+    values: ["dream","reclor","sst-2","hellaswag"]
+  attack_strat:
+    values: ["greedy"]
+  head_tuple_size:
+    values: ["6,6"]
+  layer_tuple_size:
+    values: ["6,6"]
+command:
+  - python
+  - "run_hackattend.py"
+  - "--best_epoch"
+  - "best"
+  - "--do_lower_case"
+  - "--num_tries"
+  - "30"
+  - "--max_combinations"
+  - "3"
+  - ${args}
